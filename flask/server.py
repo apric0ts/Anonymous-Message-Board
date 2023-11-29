@@ -19,13 +19,14 @@ def send_message():
     current_date = datetime.now().strftime("%B %d, %Y")
     current_time = datetime.now().strftime("%H:%M:%S")
 
-    return jsonify(
-        {
-            "Date": current_date,
-            "Time": current_time,
-            "Message": received_message[0:128]
+    if len(received_message) != 0:
+        return jsonify(
+            {
+                "Date": current_date,
+                "Time": current_time,
+                "Message": received_message[0:128]
 
-        }
+            }
     )
 
 
